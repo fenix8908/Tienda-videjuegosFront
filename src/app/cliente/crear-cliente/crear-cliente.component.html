@@ -1,0 +1,79 @@
+<div class="container">
+    <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 60rem;">
+        <div class="card-body">
+            <h5 class="card-title text-center">Nuevo cliente</h5>
+            <div class="row mt-5">
+                <div class="col-md-4 mx-auto">
+                    <form (ngSubmit)="guardarCliente()" novalidate #f="ngForm">
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo</label>
+                            <input type="text" class="form-control" id="nombre" name="nombreCompleto"
+                                [(ngModel)]="clienteInicial.nombreCompleto" required #nombreCompleto="ngModel">
+                            <div *ngIf="nombreCompleto.invalid && (nombreCompleto.dirty || nombreCompleto.touched)"
+                                class="nombreRequerido">
+                                <p *ngIf="nombreCompleto.errors.required">
+                                    El nombre es requerido*
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="correo">Correo</label>
+                            <input type="email" class="form-control" id="correo" name="correo"
+                                [(ngModel)]="clienteInicial.correo" required #correo="ngModel">
+                            <div *ngIf="correo.invalid && (correo.dirty || correo.touched)" class="nombreRequerido">
+                                <p *ngIf="correo.errors.required">
+                                    El correo es requerido*
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="nombre">Documento</label>
+                            <input type="text" class="form-control" id="documento" name="documento"
+                                [(ngModel)]="clienteInicial.documento" required #documento="ngModel">
+                            <div *ngIf="documento.invalid && (documento.dirty || documento.touched)"
+                                class="nombreRequerido">
+                                <p *ngIf="documento.errors.required">
+                                    El documento es requerido*
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="nombre">Tipo de documento</label>
+                            <select name="tipoDocumento" id="tipoDocumento" class="form-control"
+                                [(ngModel)]="clienteInicial.tipoDocumento" #tipoDocumento="ngModel">
+                                <option>Cedula de cuidadania</option>
+                                <option>tarjeta de identidad</option>
+                                <option>tarjeta de extranjeria</option>
+                            </select>
+                            <div *ngIf="tipoDocumento.invalid && (tipoDocumento.dirty || tipoDocumento.touched)"
+                                class="nombreRequerido">
+                                <p *ngIf="tipoDocumento.errors.required">
+                                    El tipo de documento es requerido*
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Telefono</label>
+                            <input type="text" class="form-control" id="telefono" name="telefono"
+                                [(ngModel)]="clienteInicial.telefono" required #telefono="ngModel" minlength="7"
+                                maxlength="10">
+                            <div *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)"
+                                class="nombreRequerido">
+                                <p *ngIf="telefono.errors.required">
+                                    El telefono es requerido*
+                                </p>
+                                <p *ngIf="telefono.errors.minlength">
+                                    Minimo 7 digitos para fijo
+                                </p>
+                                <p *ngIf="telefono.errors.maxlength">
+                                    Maximo 10 digitos para movil
+                                </p>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">Crear cliente</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
