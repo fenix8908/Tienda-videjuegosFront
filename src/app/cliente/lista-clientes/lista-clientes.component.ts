@@ -10,6 +10,7 @@ import { Cliente } from 'src/app/models/cliente';
 export class ListaClientesComponent implements OnInit {
 
   clientes:Cliente[] = [];
+  p: number = 1;//determina la pagina actual de la paginacion
 
   constructor(private clienteService:ClienteService) { }
 

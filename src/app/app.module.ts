@@ -9,6 +9,9 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ListaClientesComponent } from './cliente/lista-clientes/lista-clientes.component';
+import { JuegoComponent } from './juego/juego/juego.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+
 
 
 
@@ -16,7 +19,8 @@ import { ListaClientesComponent } from './cliente/lista-clientes/lista-clientes.
   declarations: [
     AppComponent,
     CrearClienteComponent,
-    ListaClientesComponent
+    ListaClientesComponent,
+    JuegoComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,7 +29,8 @@ import { ListaClientesComponent } from './cliente/lista-clientes/lista-clientes.
     ToastrModule.forRoot(),
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

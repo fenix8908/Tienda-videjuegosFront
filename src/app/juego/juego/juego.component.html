@@ -1,0 +1,97 @@
+<div class="container">
+    <table class="table table-hover table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Año</th>
+                <th scope="col">Protagonista</th>
+                <th scope="col">Director</th>
+                <th scope="col">Productor</th>
+                <th scope="col">Tecnologia</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let juego of juegos">
+                <td>{{juego.nombre}}</td>
+                <td>{{juego.anio}}</td>
+                <td>{{juego.protagonista}}</td>
+                <td>{{juego.director}}</td>
+                <td>{{juego.productor}}</td>
+                <td>{{juego.tecnologia}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="container mb-1 mt-3">
+    <div class="card shadow p-3 mb-5 bg-white rounded">
+        <div class="card-body">
+            <h5 class="card-title text-center">Filtros de búsqueda</h5>
+            <form>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="tecnoElegida">Tecnologia</label>
+                            <select name="tecnoElegida" id="tecnoElegida" class="form-control" [(ngModel)]="busqueda.tecnologia" 
+                            (change)="listaJuegos()">
+                            <option value="" selected>Elige Tecnología</option>
+                                <option value="PlayStation">PLAYSTATION</option>
+                                <option value="Xbox">XBOX</option>
+                                <option value="Nintendo">NINTENDO</option>
+                                <option value="Pc">PC</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="tecnoElegida">Director</label>
+                            <div class="input-group">
+                                <button class="btn btn-outline-danger" (click)="limpiarDirector()">Borrar</button>
+                                <input type="text" class="form-control" name="director" id="director" [(ngModel)]="busqueda.director">
+                                <button class="btn btn-outline-success" (click)="listaJuegos()">Filtrar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="tecnoElegida">Protagonista</label>
+                            <div class="input-group">
+                                <button class="btn btn-outline-danger" (click)="limpiarProtagonista()">Borrar</button>
+                                <input type="text" class="form-control" name="protagonista" id="protagonista" [(ngModel)]="busqueda.protagonista">
+                                <button class="btn btn-outline-success" (click)="listaJuegos()">Filtrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="tecnoElegida">Marca</label>
+                            <div class="input-group">
+                                <button class="btn btn-outline-danger" (click)="limpiarMarca()">Borrar</button>
+                                <input type="text" class="form-control" name="marca" id="marca" [(ngModel)]="busqueda.marca">
+                                <button class="btn btn-outline-success" (click)="listaJuegos()">Filtrar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="tecnoElegida">Productor</label>
+                            <div class="input-group">
+                                <button class="btn btn-outline-danger" (click)="limpiarProductor()">Borrar</button>
+                                <input type="text" class="form-control" name="productor" id="roductor" [(ngModel)]="busqueda.productor">
+                                <button class="btn btn-outline-success" (click)="listaJuegos()">Filtrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row  justify-content-center mt-5">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <button class="btn btn-outline-danger form-control" (click)="limpiarTodo()">Limpiar Filtros</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
