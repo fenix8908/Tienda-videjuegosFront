@@ -1,0 +1,28 @@
+<app-nav></app-nav>
+<div class="container">
+  <div class="responsive">
+    <table class="table table-hover table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Fecha  de alquiler</th>
+          <th scope="col">Fecha de entrega </th>
+          <th scope="col">Precio del alquiler </th>
+          <th scope="col">cliente</th>
+          <th scope="col">juego</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let alquiler of alquilerLista | paginate: { itemsPerPage: 7, currentPage: p }">
+          <td>{{alquiler.fechaAlquiler}}</td>
+          <td>{{alquiler.fechaEntrega}}</td>
+          <td>{{alquiler.precioAlquiler}}</td>
+          <td>{{alquiler.id_cliente}}</td>
+          <td>{{alquiler.id_juego}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="row justify-content-center">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+</div>

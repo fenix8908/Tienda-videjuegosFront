@@ -36,13 +36,13 @@ export class CrearClienteComponent implements OnInit {
         this.toastService.success('Cliente creado!!', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
-        this.router.navigate(['/']);
+        this.router.navigate(['/lista-cliente']);
       },
       err => {
         this.toastService.error(err.error.mensaje, 'fallo la creacion del cliente', {
           timeOut: 3000, positionClass: 'toast-top-center',
         });
-        this.router.navigate(['/']);
+        this.router.navigate(['/nuevo']);
       }
     )
   }

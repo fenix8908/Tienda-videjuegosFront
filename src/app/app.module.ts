@@ -11,6 +11,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { ListaClientesComponent } from './cliente/lista-clientes/lista-clientes.component';
 import { JuegoComponent } from './juego/juego/juego.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { HomeComponent } from './home/home/home.component';
+import { NavComponent } from './nav/nav/nav.component';
+import { ListaAlquilerComponent } from './alquiler/lista-alquiler/lista-alquiler.component';
+import { CrearAlquilerComponent } from './alquile-crearr/crear-alquiler/crear-alquiler.component';
 
 
 
@@ -21,6 +25,10 @@ import {NgxPaginationModule} from 'ngx-pagination';
     CrearClienteComponent,
     ListaClientesComponent,
     JuegoComponent,
+    HomeComponent,
+    NavComponent,
+    ListaAlquilerComponent,
+    CrearAlquilerComponent,
   ],
   imports: [
     BrowserModule,
