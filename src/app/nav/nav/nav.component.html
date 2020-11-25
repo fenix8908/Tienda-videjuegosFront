@@ -7,18 +7,24 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
 
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="estaLogeado">
                 <a class="nav-link" routerLink="/lista-alquiler"><i class="far fa-list-alt"></i> listado-alquiler</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="estaLogeado">
                 <a class="nav-link" routerLink="/lista-cliente"><i class="far fa-list-alt"></i> Clientes</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="estaLogeado">
                 <a class="nav-link" routerLink="/nuevo"><i class="fas fa-plus-circle"></i> Nuevo cliente</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" routerLink="/juego"><i class="fas fa-gamepad"></i> Juegos</a>
             </li>
+            <li class="nav-item" *ngIf="!estaLogeado">
+                <a class="nav-link"  routerLink="/login"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a>
+              </li>
+              <li class="nav-item" *ngIf="estaLogeado" (click)="onLogOut()">
+                <a class="nav-link" style="cursor: pointer;"><i class="fas fa-door-open" ></i> Cerrar Sesión</a>
+              </li>
         </ul>
     </div>
 </nav>

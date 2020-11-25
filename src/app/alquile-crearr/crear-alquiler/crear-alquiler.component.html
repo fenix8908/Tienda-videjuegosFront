@@ -1,1 +1,58 @@
-<p>crear-alquiler works!</p>
+<app-nav></app-nav>
+<div class="container">
+    <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 60rem;">
+        <div class="card-body">
+            <form (ngSubmit)="registrarAlquiler()" #form="ngForm" novalidate>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input name="fechaAlquiler" type="hidden" class="form-control"
+                            [(ngModel)]="alquilerRequest.fechaAlquiler" #fechaAlquiler="ngModel" >
+                        <div class="form-group">
+                            <label for="fecha-entrega">Fecha de entrega</label>
+                            <input name="fechaEntrega" type="date" class="form-control"
+                                [(ngModel)]="alquilerRequest.fechaEntrega" #fechaEntrega="ngModel" required>
+                            <div *ngIf="fechaEntrega.invalid && (fechaEntrega.dirty || fechaEntrega.touched)">
+                                <p *ngIf="fechaEntrega.errors.required" class="alert alert-danger">
+                                    La fecha es requerida*
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="precioAlquiler">Precio alquiler</label>
+                            <input name="precioAlquiler" type="number" class="form-control"
+                                [(ngModel)]="alquilerRequest.precioAlquiler" #precioAlquiler="ngModel" required>
+                            <div *ngIf="precioAlquiler.invalid && (precioAlquiler.dirty || precioAlquiler.touched)">
+                                <p *ngIf="precioAlquiler.errors.required" class="alert alert-danger">
+                                    El precio es obligatorio*
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <label for="cliente">Cliente</label>
+                        <select name="clienteId" id="clienteId" class="form-control" [(ngModel)]="clienteId">
+                            <option *ngFor="let item of listaClientes" value="{{item.id}}">{{item.nombreCompleto}}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="cliente">Juego</label>
+                        <select name="juegoId" id="juegoId" class="form-control" [(ngModel)]="juegoId">
+                            <option *ngFor="let item of listaJuegos" value="{{item.id}}">{{item.nombre}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-2 justify-content-center mt-4">
+                    <div class="col-md-4">
+                        <button class="btn btn-outline-success btn-block" [disabled]="!form.valid">Alquilar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

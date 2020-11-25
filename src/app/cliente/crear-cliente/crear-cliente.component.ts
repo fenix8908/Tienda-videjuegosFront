@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./crear-cliente.component.css']
 })
 export class CrearClienteComponent implements OnInit {
-
   clienteInicial = {
     correo: '',
     documento: '',
@@ -18,6 +17,7 @@ export class CrearClienteComponent implements OnInit {
     telefono: '',
     tipoDocumento: '',
   }
+  
 
   constructor(
     private clienteService: ClienteService,

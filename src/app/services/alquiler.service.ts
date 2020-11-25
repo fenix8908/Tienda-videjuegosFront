@@ -1,3 +1,4 @@
+
 import { Alquiler } from './../models/alquiler';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -9,18 +10,15 @@ import { Observable } from 'rxjs';
 })
 export class AlquilerService {
 
-  alquilerURL="http://localhost:8080/alquiler/";
+  alquilerURL="http://localhost:8080/tienda/";
   constructor(private http: HttpClient) { }
 
   public lista(): Observable<Alquiler[]> {
     return this.http.get<Alquiler[]>(this.alquilerURL + 'lista');
   }
 
-  public listaJoin(): Observable<Alquiler[]> {
-    return this.http.get<Alquiler[]>(this.alquilerURL + 'alquileres');
+  public registrarAlquiler(alquiler: Alquiler,idCliente:number,idJuego:number): Observable<any> {
+    return this.http.post(this.alquilerURL + `alquiler/cliente/${idCliente}/juego/${idJuego}`, alquiler);
   }
 
-  public registrarAlquiler(alquiler: Alquiler): Observable<any> {
-    return this.http.post(this.alquilerURL + 'registro', alquiler);
-  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-nav',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  estaLogeado = false;
 
-  ngOnInit(): void {
+  constructor(private tokenService: TokenService) { }
+
+  ngOnInit() {
+    if (this.tokenService.getToken()) {
+      this.estaLogeado = true;
+    } else {
+      this.estaLogeado = false;
+    }
+  }
+
+  onLogOut(): void {
+    this.tokenService.logOut();
+    window.location.reload();
   }
 
 }

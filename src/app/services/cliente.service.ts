@@ -16,6 +16,10 @@ export class ClienteService {
     return this.http.get<Cliente[]>(this.clienteURL + 'lista');
   }
 
+  public detalle(id:number):Observable<Cliente[]>{
+    return this.http.get<Cliente[]>(this.clienteURL + "detalle/"+ id);
+  }
+  
   public guardarCliente(cliente:Cliente): Observable<any>{
     return this.http.post(this.clienteURL + 'crear',cliente);
   }

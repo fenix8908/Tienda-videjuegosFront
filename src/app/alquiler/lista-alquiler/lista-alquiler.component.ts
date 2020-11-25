@@ -1,3 +1,4 @@
+
 import { AlquilerService } from './../../services/alquiler.service';
 import { Alquiler } from './../../models/alquiler';
 import { Component, OnInit } from '@angular/core';
@@ -9,16 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaAlquilerComponent implements OnInit {
 
-  alquilerLista: Alquiler[] = [];
-  listaAlquilerJoin: Alquiler[] = [];
-
+  alquilerLista: Alquiler[] = [];  
   p: number = 1;//determina la pagina actual de la paginacion
 
   constructor(private alquilerService: AlquilerService) { }
 
   ngOnInit(): void {
     this.cargarAlquilerLitado();
-    this.clientesQueAlquilaron();
   }
 
   cargarAlquilerLitado() {
@@ -32,15 +30,5 @@ export class ListaAlquilerComponent implements OnInit {
     )
   }
 
-  clientesQueAlquilaron() {
-    this.alquilerService.listaJoin().subscribe(
-      data => {
-        this.listaAlquilerJoin = data;
-      },
-      err => {
-        console.log(err);
-      }
-    )
-  }
 
 }
